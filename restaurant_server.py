@@ -52,8 +52,7 @@ class Restaurant(restaurant_pb2_grpc.RestaurantServicer):
 
 
 def serve():
-    # Logic goes here
-    # Remember to start the server on localhost and a port defined by the first command line argument
+    # start the server on localhost and a port defined by the first command line argument
     port = sys.argv[1] if len(sys.argv) > 1 else "50051"
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     restaurant_pb2_grpc.add_RestaurantServicer_to_server(Restaurant(), server)
